@@ -16,8 +16,6 @@
 
 <br>
 
-![AI Smart-Distiller Demo](https://raw.githubusercontent.com/muzammil-zaidi/AI-Smart-Distiller/main/assets/demo.png)
-
 </div>
 
 ---
@@ -45,12 +43,12 @@ Input Text  →  GPT-4o-mini (OpenAI API)  →  Structured JSON
 
 | Feature | Description |
 |---|---|
-| 🤖 **AI Extraction** | Uses GPT-4o-mini to extract summary, action items, and deadlines from any text |
-| 📊 **Google Sheets** | Appends structured data as a new row automatically via the Sheets API |
-| 📧 **Email Reports** | Sends a beautifully formatted HTML email report via Gmail SMTP |
-| 🗂️ **Multi-page UI** | Clean 4-page Streamlit app — Home, Distiller, Automation, About |
-| ⚙️ **Status Dashboard** | Live system status showing which integrations are configured |
-| 🚪 **Exit Screen** | Presentation-ready thank-you screen with team credits |
+|  **AI Extraction** | Uses GPT-4o-mini to extract summary, action items, and deadlines from any text |
+|  **Google Sheets** | Appends structured data as a new row automatically via the Sheets API |
+|  **Email Reports** | Sends a beautifully formatted HTML email report via Gmail SMTP |
+|  **Multi-page UI** | Clean 4-page Streamlit app — Home, Distiller, Automation, About |
+|  **Status Dashboard** | Live system status showing which integrations are configured |
+|  **Exit Screen** | Presentation-ready thank-you screen with team credits |
 
 ---
 
@@ -114,35 +112,6 @@ Open your browser at `http://localhost:8501`
 
 ---
 
-## ⚙️ Configuration Guide
-
-### 🤖 OpenAI API Key
-1. Go to [platform.openai.com](https://platform.openai.com)
-2. Sign in → **API Keys** → **Create new secret key**
-3. Copy the key (starts with `sk-proj-...`) and paste it in `config.py`
-
-> You need billing credits to use the API. GPT-4o-mini costs approximately **$0.15 per 1M input tokens** — very cheap for this use case.
-
-### 📊 Google Sheets Integration
-1. Go to [console.cloud.google.com](https://console.cloud.google.com) and create a new project
-2. Enable **Google Sheets API** and **Google Drive API**
-3. Go to **IAM & Admin → Service Accounts** → Create a service account
-4. Download the **JSON key file** and note its path
-5. Create a new Google Sheet named **"AI Distiller Output"**
-6. **Share** the sheet with the service account email (e.g. `myapp@myproject.iam.gserviceaccount.com`) with **Editor** access
-7. Set `GOOGLE_SERVICE_ACCOUNT_JSON` to the path of the downloaded JSON file
-
-### 📧 Gmail SMTP Setup
-1. Go to [myaccount.google.com](https://myaccount.google.com) → **Security**
-2. Enable **2-Step Verification**
-3. Search for **App Passwords** → Select app: **Mail** → Generate
-4. Copy the **16-character password** (e.g. `abcd efgh ijkl mnop`)
-5. Paste it as `EMAIL_PASSWORD` in `config.py`
-
-> **Note:** Use an App Password, not your regular Gmail password. App Passwords bypass 2FA for programmatic access.
-
----
-
 ## 🧠 How It Works
 
 ### AI Extraction (Prompt Engineering)
@@ -175,17 +144,6 @@ User clicks "Run Automation"
         │
         └──► mailer.py ──► smtplib.SMTP_SSL("smtp.gmail.com", 465) ──► server.sendmail()
 ```
-
----
-
-## 📸 Screenshots
-
-| Page | Description |
-|---|---|
-| **Home** | Dashboard with feature cards, navigation, and live system status |
-| **Distiller** | Text input area with AI extraction results in Summary / Tasks / Deadlines tabs |
-| **Automation** | Destination selector with real-time pipeline status |
-| **About** | Project overview, team cards, and setup guide |
 
 ---
 
